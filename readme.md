@@ -98,6 +98,8 @@ realese: function(){
 
 this.flist是放压缩内容的，forEach() == for()，``item.async("blob")``是对zipObject处理成blob数据，blob是二进制，zipObject是放在flist里的内容（不重要）``this.delete(content);``清除缓存
 
+## bug修复
+``zip.generateAsync({option[,onUpdate]})``里面的onUpdate()更新回调很慢，数据传输很慢，经常下载到**一半**才有数据返回，但加上``streamFiles: true``改成流式传输就会有更加频繁的数据回调，在进度条方面有显著的显示提升
 # End
 
 
